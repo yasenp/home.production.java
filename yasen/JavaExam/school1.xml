@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<School>
+	<Data>
+		<ScholeName>School Test Number 1</ScholeName>
+		<CrateDate>25/01/1975</CrateDate>
+	</Data>
+	<Students>
+		<Student>
+			<StudentName>Ivan</StudentName>
+		</Student>
+		<Student>
+			<StudentName>Georgi</StudentName>
+		</Student>
+		<Student>
+			<StudentName>Petar</StudentName>
+		</Student>
+		<Student>
+			<StudentName>Vladimir</StudentName>
+		</Student>
+	</Students>
+	<Teachers>
+		<Teacher>
+			<TeacherName>Petrov</TeacherName>
+		</Teacher>
+		<Teacher>
+			<TeacherName>Dimitrov</TeacherName>
+		</Teacher>
+		<Teacher>
+			<TeacherName>Ivanova</TeacherName>
+		</Teacher>
+		<Teacher>
+			<TeacherName>Pavlov</TeacherName>
+		</Teacher>
+	</Teachers>
+</School>

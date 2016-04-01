@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<School>
+	<Data>
+		<ScholeName>School Test Number 2</ScholeName>
+		<CreateDate>01/01/1964</CreateDate>
+	</Data>
+	<Students>
+		<Student>
+			<StudentName>Petkan</StudentName>
+		</Student>
+		<Student>
+			<StudentName>Lubo</StudentName>
+		</Student>
+		<Student>
+			<StudentName>Mitko</StudentName>
+		</Student>
+		<Student>
+			<StudentName>Goshko</StudentName>
+		</Student>
+	</Students>
+	<Teachers>
+		<Teacher>
+			<TeacherName>Peev</TeacherName>
+		</Teacher>
+		<Teacher>
+			<TeacherName>Draganov</TeacherName>
+		</Teacher>
+		<Teacher>
+			<TeacherName>Petev</TeacherName>
+		</Teacher>
+		<Teacher>
+			<TeacherName>Popov</TeacherName>
+		</Teacher>
+	</Teachers>
+</School>

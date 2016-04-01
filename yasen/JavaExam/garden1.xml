@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Garden>
+	<Data>
+		<GardenName>School Test Number 1</GardenName>
+		<CrateDate>25/01/1975</CreateDate>
+	</Data>
+	<Students>
+		<Student>
+			<StudentName>Ivancho</StudentName>
+		</Student>
+		<Student>
+			<StudentName>Goshko</StudentName>
+		</Student>
+		<Student>
+			<StudentName>Peshko</StudentName>
+		</Student>
+		<Student>
+			<StudentName>Vladko</StudentName>
+		</Student>
+	</Students>
+	<Teachers>
+		<Teacher>
+			<TeacherName>Petrova</TeacherName>
+		</Teacher>
+		<Teacher>
+			<TeacherName>Dimitrova</TeacherName>
+		</Teacher>
+		<Teacher>
+			<TeacherName>Ivanov</TeacherName>
+		</Teacher>
+		<Teacher>
+			<TeacherName>Pavlova</TeacherName>
+		</Teacher>
+	</Teachers>
+</Garden>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/OOPJAVA01.iml" filepath="$PROJECT_DIR$/OOPJAVA01.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/OOPJAVA01_main.iml" filepath="$PROJECT_DIR$/.idea/modules/OOPJAVA01_main.iml" group="OOPJAVA01" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/OOPJAVA01_test.iml" filepath="$PROJECT_DIR$/.idea/modules/OOPJAVA01_test.iml" group="OOPJAVA01" />
+    </modules>
+  </component>
+</project>

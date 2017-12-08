@@ -1,5 +1,9 @@
 package SocketPack;
 
+import AppUIPack.MainForm;
+import sun.applet.Main;
+
+import javax.swing.*;
 import java.io.*;
 import java.net.InetAddress;
 import java.net.Socket;
@@ -27,6 +31,10 @@ public class Client {
             String input = in.readLine();
             String fromClient;
             Client currentClient = new Client(args[0]);
+            JFrame frame = new JFrame();
+
+            MainForm.CreateMainForm().CreatePanel();
+
             while(input != null){
                 if(input.equals("ACCEPTED")){
 

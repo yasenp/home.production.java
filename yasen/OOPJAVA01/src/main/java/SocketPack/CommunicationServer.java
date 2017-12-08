@@ -21,6 +21,7 @@ public class CommunicationServer extends Thread{
 
     //Override run() from super class Thread.
     public void run() {
+        System.out.println("Server is started and ready for listening on port 9999");
         try{
             PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
             BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));

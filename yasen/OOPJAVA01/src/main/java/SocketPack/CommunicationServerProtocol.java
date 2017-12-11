@@ -13,12 +13,8 @@ public class CommunicationServerProtocol {
             stateValue = "ACCEPTED";
         } else if(state.equals("TRYING")){
             stateValue = "DECLINED";
-        }
-
-        if(state.equals("EXECUTE")){
-            stateValue = "START";
-        } else if(state.equals("FINISH")){
-            stateValue = "STOP";
+        } else {
+            stateValue = state;
         }
 
         return stateValue;

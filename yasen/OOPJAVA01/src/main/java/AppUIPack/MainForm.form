@@ -6,24 +6,6 @@
     </constraints>
     <properties/>
     <border type="none"/>
-    <children>
-      <grid id="42c26" binding="panelBottom" layout-manager="FlowLayout" hgap="100" vgap="200" flow-align="1">
-        <constraints/>
-        <properties/>
-        <border type="none"/>
-        <children>
-          <component id="21546" class="javax.swing.JTextPane" binding="textPane">
-            <constraints/>
-            <properties>
-              <text value=""/>
-            </properties>
-          </component>
-          <component id="acef3" class="javax.swing.JTextField" binding="textField">
-            <constraints/>
-            <properties/>
-          </component>
-        </children>
-      </grid>
-    </children>
+    <children/>
   </grid>
 </form>

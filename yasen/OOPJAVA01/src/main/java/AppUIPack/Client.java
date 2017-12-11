@@ -19,7 +19,6 @@ public class Client extends Thread {
 
     public Client(String name){
         this.name = name;
-
         InitClient();
     }
 
@@ -38,7 +37,6 @@ public class Client extends Thread {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 
     public void sendText(String s){

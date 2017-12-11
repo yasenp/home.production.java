@@ -15,21 +15,26 @@ public class MainForm extends JFrame {
     private JPanel panelBase;
     private JFrame mainFrame = null;
     private Client currentClient;
+    private JTextArea textAreaConn;
+
+    private  JPanel panelPlayGround;
 
     public MainForm(Client client){
         currentClient = client;
         PrepareForm();
         CreatePanel();
+        CreatePlayGround();
         new RecvText().start();
     }
 
     private void PrepareForm(){
         mainFrame = new JFrame();
-        mainFrame.setSize(615,640);
+        mainFrame.setSize(960,640);
         mainFrame.getDefaultCloseOperation();
         mainFrame.setLocationRelativeTo(null);
         controlPanel = new JPanel();
         controlPanel.setLayout(null);
+        controlPanel.setBackground(Color.gray);
         mainFrame.add(controlPanel);
     }
 
@@ -37,9 +42,9 @@ public class MainForm extends JFrame {
 
         //creating bottom side panel
         panelBottom = new JPanel();
-        panelBottom.setSize(600,100);
+        panelBottom.setSize(260,100);
         panelBottom.setLayout(null);
-        panelBottom.setLocation(0,500);
+        panelBottom.setLocation(680,500);
         panelBottom.setBackground(Color.red);
         controlPanel.add(panelBottom); //add bottom side panel to control panel
 
@@ -47,38 +52,60 @@ public class MainForm extends JFrame {
         panelRight = new JPanel();
         panelRight.setSize(100,500);
         panelRight.setLayout(null);
-        panelRight.setLocation(500,0);
+        panelRight.setLocation(580,5);
         panelRight.setBackground(Color.BLUE);
         controlPanel.add(panelRight); //add right side panel to control panel
 
         //creating right side panel
         panelBase = new JPanel();
-        panelBase.setSize(500,500);
+        panelBase.setSize(260,500);
         panelBase.setLayout(null);
-        panelBase.setLocation(0,0);
+        panelBase.setLocation(680,0);
         panelBase.setBackground(Color.GRAY);
         controlPanel.add(panelBase); //add right side panel to control panel
 
+        //creating playground panel
+        panelPlayGround = new JPanel(){
+            @Override
+            protected void paintComponent(Graphics g) {
+                super.paintComponent(g);
+                g.drawLine(10,20,30, 50);
+                //g.drawImage(image, 0, 0, null);
+            }
+        };
+        panelPlayGround.setLayout(null);
+        panelPlayGround.setBackground(Color.yellow);
+        panelPlayGround.setLocation(5, 5);
+        panelPlayGround.setSize(570,500);
+        controlPanel.add(panelPlayGround);
+
         //create bottom button
         button = new JButton("Send");
-        button.setLocation(510,10);
-        button.setSize(80,80);
+        button.setLocation(170,10);
+        button.setSize(80,40);
         panelBottom.add(button);
 
 
         //create text field
         textField = new JTextField(10);
         textField.setLocation(10,10);
-        textField.setSize(480,80);
+        textField.setSize(160,40);
         textField.setHorizontalAlignment(JTextField.LEFT);
         panelBottom.add(textField); //add ui text field component to panel bottom
 
         //create text pane
         textArea = new JTextArea();
         textArea.setEditable(false);
-        textArea.setLocation(10,10);
-        textArea.setSize(480,480);
+        textArea.setLocation(5,5);
+        textArea.setSize(175,490);
         panelBase.add(textArea);
+
+        //create text pane
+        textAreaConn = new JTextArea();
+        textAreaConn.setEditable(false);
+        textAreaConn.setLocation(185,5);
+        textAreaConn.setSize(70,490);
+        panelBase.add(textAreaConn);
 
         //set the main frame to visible
         mainFrame.setVisible(true);
@@ -88,6 +115,9 @@ public class MainForm extends JFrame {
 
     }
 
+    public void CreatePlayGround(){
+
+    }
 
     //receiving text listener for chat
 

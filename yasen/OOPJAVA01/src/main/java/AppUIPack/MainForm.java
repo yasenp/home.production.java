@@ -2,8 +2,7 @@ package AppUIPack;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
 import java.util.LinkedList;
 
 public class MainForm extends JFrame {
@@ -124,7 +123,9 @@ public class MainForm extends JFrame {
         linesPanel.setLocation(0,0);
         linesPanel.setSize(790,580);
         panelPlayGround.add(linesPanel);
+        linesPanel.addMouseListener(new MouseAdapter());
     }
+
 
 
     private class RecvObject extends Thread {
@@ -178,6 +179,38 @@ public class MainForm extends JFrame {
         public void actionPerformed(ActionEvent e) {
 
             currentClient.SendObject(new CommunicationObject(new LinkedList<>()));
+        }
+    }
+
+    //action listener instances
+
+    class MouseAdapter implements MouseListener {
+
+        @Override
+        public void mouseClicked(MouseEvent e) {
+            linesPanel.removeLastStick();
+            revalidate();
+            repaint();
+        }
+
+        @Override
+        public void mousePressed(MouseEvent e) {
+
+        }
+
+        @Override
+        public void mouseReleased(MouseEvent e) {
+
+        }
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+
+        }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+
         }
     }
 

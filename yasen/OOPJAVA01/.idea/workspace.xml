@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/src/main/java/AppUIPack/MainForm.java" line="133" />
+    <bookmark url="file://$PROJECT_DIR$/src/main/java/AppUIPack/MainForm.java" line="134" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2c4a1ada-25b6-46eb-81df-021fd101b9db" name="Default" comment="" />
@@ -30,8 +30,8 @@
       <file leaf-file-name="ProgramManager.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/SocketPack/ProgramManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+            <state relative-caret-position="255">
+              <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -40,12 +40,12 @@
       <file leaf-file-name="MainForm.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/AppUIPack/MainForm.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="133" column="0" lean-forward="false" selection-start-line="133" selection-start-column="0" selection-end-line="133" selection-end-column="0" />
+            <state relative-caret-position="479">
+              <caret line="192" column="22" lean-forward="true" selection-start-line="192" selection-start-column="22" selection-end-line="192" selection-end-column="22" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#5630#5631#0" expanded="true" />
-                <element signature="e#5679#5680#0" expanded="true" />
+                <element signature="e#6215#6216#0" expanded="true" />
+                <element signature="e#6264#6265#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -54,8 +54,8 @@
       <file leaf-file-name="LinesPanel.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/AppUIPack/LinesPanel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+            <state relative-caret-position="169">
+              <caret line="31" column="30" lean-forward="true" selection-start-line="31" selection-start-column="30" selection-end-line="31" selection-end-column="30" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#493#500#0" expanded="true" />
@@ -146,12 +146,12 @@
       <file leaf-file-name="CommunicationServer.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/SocketPack/CommunicationServer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="355">
-              <caret line="40" column="34" lean-forward="false" selection-start-line="40" selection-start-column="12" selection-end-line="40" selection-end-column="34" />
+            <state relative-caret-position="581">
+              <caret line="73" column="32" lean-forward="true" selection-start-line="73" selection-start-column="32" selection-end-line="73" selection-end-column="32" />
               <folding>
-                <element signature="e#691#698#0" expanded="true" />
-                <element signature="e#2792#2793#0" expanded="true" />
-                <element signature="e#2845#2846#0" expanded="true" />
+                <element signature="e#654#661#0" expanded="true" />
+                <element signature="e#2818#2819#0" expanded="true" />
+                <element signature="e#2871#2872#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -160,7 +160,7 @@
       <file leaf-file-name="ServerClients.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/SocketPack/ServerClients.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="237">
+            <state relative-caret-position="391">
               <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -492,14 +492,14 @@
         <option value="$PROJECT_DIR$/src/main/java/AppUIPack/Stick.java" />
         <option value="$PROJECT_DIR$/src/main/java/SocketPack/LinesPanel.java" />
         <option value="$PROJECT_DIR$/src/main/java/SocketPack/Stick.java" />
-        <option value="$PROJECT_DIR$/src/main/java/SocketPack/ProgramManager.java" />
         <option value="$PROJECT_DIR$/src/main/java/AppUIPack/LinesPanel.java" />
         <option value="$PROJECT_DIR$/src/main/java/SocketPack/CommunicationObject.java" />
         <option value="$PROJECT_DIR$/src/main/java/AppUIPack/Client.java" />
         <option value="$PROJECT_DIR$/src/main/java/SocketPack/ServerClients.java" />
         <option value="$PROJECT_DIR$/src/main/java/AppUIPack/CommunicationObject.java" />
-        <option value="$PROJECT_DIR$/src/main/java/AppUIPack/MainForm.java" />
         <option value="$PROJECT_DIR$/src/main/java/SocketPack/CommunicationServer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/SocketPack/ProgramManager.java" />
+        <option value="$PROJECT_DIR$/src/main/java/AppUIPack/MainForm.java" />
       </list>
     </option>
   </component>
@@ -793,7 +793,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1812" height="1096" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -803,13 +802,13 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23194303" sideWeight="0.5022272" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24791667" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24791667" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32962137" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25627854" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25627854" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32960325" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Learn" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -817,7 +816,7 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26145834" sideWeight="0.49777284" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26145834" sideWeight="0.49777284" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -849,49 +848,49 @@
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/AppUIPack/MainForm.java</url>
-          <line>186</line>
+          <line>219</line>
           <properties />
           <option name="timeStamp" value="74" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/AppUIPack/MainForm.java</url>
-          <line>155</line>
+          <line>156</line>
           <properties />
           <option name="timeStamp" value="81" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/AppUIPack/MainForm.java</url>
-          <line>77</line>
+          <line>76</line>
           <properties />
           <option name="timeStamp" value="83" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/AppUIPack/MainForm.java</url>
-          <line>27</line>
+          <line>26</line>
           <properties />
           <option name="timeStamp" value="84" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/AppUIPack/MainForm.java</url>
-          <line>179</line>
+          <line>180</line>
           <properties />
           <option name="timeStamp" value="89" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/SocketPack/CommunicationServer.java</url>
-          <line>54</line>
+          <line>53</line>
           <properties />
           <option name="timeStamp" value="90" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/SocketPack/CommunicationServer.java</url>
-          <line>57</line>
+          <line>56</line>
           <properties />
           <option name="timeStamp" value="91" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/AppUIPack/MainForm.java</url>
-          <line>121</line>
+          <line>120</line>
           <properties />
           <option name="timeStamp" value="94" />
         </line-breakpoint>
@@ -903,7 +902,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/SocketPack/CommunicationServer.java</url>
-          <line>53</line>
+          <line>52</line>
           <properties />
           <option name="timeStamp" value="105" />
         </line-breakpoint>
@@ -915,13 +914,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/AppUIPack/MainForm.java</url>
-          <line>134</line>
+          <line>135</line>
           <properties />
           <option name="timeStamp" value="109" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/AppUIPack/MainForm.java</url>
-          <line>170</line>
+          <line>171</line>
           <properties />
           <option name="timeStamp" value="111" />
         </line-breakpoint>
@@ -943,12 +942,6 @@
           <properties />
           <option name="timeStamp" value="114" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/AppUIPack/MainForm.java</url>
-          <line>133</line>
-          <properties />
-          <option name="timeStamp" value="115" />
-        </line-breakpoint>
         <line-breakpoint type="java-field">
           <url>file://$PROJECT_DIR$/src/main/java/AppUIPack/LinesPanel.java</url>
           <line>17</line>
@@ -961,11 +954,7 @@
       </breakpoints-dialog>
       <option name="time" value="116" />
     </breakpoint-manager>
-    <watches-manager>
-      <configuration name="Application">
-        <watch expression="input.GetStick().isEmpty()" />
-      </configuration>
-    </watches-manager>
+    <watches-manager />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/main/java/SocketPack/ProgramManager.java">
@@ -982,8 +971,8 @@
           <caret line="25" column="28" lean-forward="true" selection-start-line="25" selection-start-column="28" selection-end-line="25" selection-end-column="28" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#5630#5631#0" expanded="true" />
-            <element signature="e#5679#5680#0" expanded="true" />
+            <element signature="e#6215#6216#0" expanded="true" />
+            <element signature="e#6264#6265#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1014,9 +1003,9 @@
         <state relative-caret-position="425">
           <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
           <folding>
-            <element signature="e#691#698#0" expanded="true" />
-            <element signature="e#2792#2793#0" expanded="true" />
-            <element signature="e#2845#2846#0" expanded="true" />
+            <element signature="e#654#661#0" expanded="true" />
+            <element signature="e#2818#2819#0" expanded="true" />
+            <element signature="e#2871#2872#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1075,9 +1064,9 @@
         <state relative-caret-position="255">
           <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
           <folding>
-            <element signature="e#691#698#0" expanded="true" />
-            <element signature="e#2792#2793#0" expanded="true" />
-            <element signature="e#2845#2846#0" expanded="true" />
+            <element signature="e#654#661#0" expanded="true" />
+            <element signature="e#2818#2819#0" expanded="true" />
+            <element signature="e#2871#2872#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1096,8 +1085,8 @@
           <caret line="39" column="5" lean-forward="true" selection-start-line="39" selection-start-column="5" selection-end-line="39" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#5630#5631#0" expanded="true" />
-            <element signature="e#5679#5680#0" expanded="true" />
+            <element signature="e#6215#6216#0" expanded="true" />
+            <element signature="e#6264#6265#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1116,8 +1105,8 @@
           <caret line="4" column="36" lean-forward="false" selection-start-line="4" selection-start-column="36" selection-end-line="4" selection-end-column="36" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#5630#5631#0" expanded="true" />
-            <element signature="e#5679#5680#0" expanded="true" />
+            <element signature="e#6215#6216#0" expanded="true" />
+            <element signature="e#6264#6265#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1150,9 +1139,9 @@
         <state relative-caret-position="255">
           <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
           <folding>
-            <element signature="e#691#698#0" expanded="true" />
-            <element signature="e#2792#2793#0" expanded="true" />
-            <element signature="e#2845#2846#0" expanded="true" />
+            <element signature="e#654#661#0" expanded="true" />
+            <element signature="e#2818#2819#0" expanded="true" />
+            <element signature="e#2871#2872#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1245,27 +1234,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/SocketPack/CommunicationServerProtocol.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/AppUIPack/LinesPanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#493#500#0" expanded="true" />
-            <element signature="e#553#554#0" expanded="true" />
-            <element signature="e#589#590#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/AppUIPack/CommunicationObject.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="304">
@@ -1287,31 +1255,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/AppUIPack/MainForm.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="133" column="0" lean-forward="false" selection-start-line="133" selection-start-column="0" selection-end-line="133" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#5630#5631#0" expanded="true" />
-            <element signature="e#5679#5680#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/AppUIPack/Client.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="321">
-          <caret line="76" column="0" lean-forward="false" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/SocketPack/ServerClients.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="237">
+        <state relative-caret-position="391">
           <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1350,22 +1296,65 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/SocketPack/CommunicationServerProtocol.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/SocketPack/ProgramManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+        <state relative-caret-position="255">
+          <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/AppUIPack/Client.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="321">
+          <caret line="76" column="0" lean-forward="false" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/AppUIPack/LinesPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="169">
+          <caret line="31" column="30" lean-forward="true" selection-start-line="31" selection-start-column="30" selection-end-line="31" selection-end-column="30" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#493#500#0" expanded="true" />
+            <element signature="e#553#554#0" expanded="true" />
+            <element signature="e#589#590#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/AppUIPack/MainForm.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="479">
+          <caret line="192" column="22" lean-forward="true" selection-start-line="192" selection-start-column="22" selection-end-line="192" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#6215#6216#0" expanded="true" />
+            <element signature="e#6264#6265#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/SocketPack/CommunicationServer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="355">
-          <caret line="40" column="34" lean-forward="false" selection-start-line="40" selection-start-column="12" selection-end-line="40" selection-end-column="34" />
+        <state relative-caret-position="581">
+          <caret line="73" column="32" lean-forward="true" selection-start-line="73" selection-start-column="32" selection-end-line="73" selection-end-column="32" />
           <folding>
-            <element signature="e#691#698#0" expanded="true" />
-            <element signature="e#2792#2793#0" expanded="true" />
-            <element signature="e#2845#2846#0" expanded="true" />
+            <element signature="e#654#661#0" expanded="true" />
+            <element signature="e#2818#2819#0" expanded="true" />
+            <element signature="e#2871#2872#0" expanded="true" />
           </folding>
         </state>
       </provider>

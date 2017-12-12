@@ -22,7 +22,7 @@ public class CommunicationServer extends Thread {
     CommunicationServerProtocol serverProtocol;
     ServerClients clients;
     LinesPanel linesPanel;
-    Random randomMain = new Random();
+
     private static LinkedList<Stick> sticks = new LinkedList<Stick>();
 
     //CommunicationServer constructor with specific client socket as argument.
@@ -38,7 +38,6 @@ public class CommunicationServer extends Thread {
 
             clients.addClientsOut(outObject);
 
-            CreateSticksCollection();
             serverProtocol = new CommunicationServerProtocol();
         } catch(IOException eio){
             eio.fillInStackTrace();
@@ -69,15 +68,16 @@ public class CommunicationServer extends Thread {
         }
     }
 
-    public void CreateSticksCollection(){
-
+    public static void CreateSticksCollection(){
+        Random randomMain = new Random();
         for (int i = 0; i <= 20; i++) {
             int angle = (60 + randomMain.nextInt(120));
             int x1 = (int) (600/5 + 120 * Math.sin(angle))+200;
             int y1 = (int) (600/5 + 120 * Math.cos(angle))+200;
             int x2 = (int) (x1 + 300 * Math.cos(angle));
             int y2 = (int) (y1 + 200 * Math.sin(angle));
-            this.addStick(x1, y1, x2, y2);
+            //this.addStick(x1, y1, x2, y2);
+            sticks.add(new Stick(x1, y1, x2, y2));
         }
     }
 

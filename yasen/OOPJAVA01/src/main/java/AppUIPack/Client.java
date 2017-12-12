@@ -1,11 +1,11 @@
 package AppUIPack;
 
-import SocketPack.LinesPanel;
+import SocketPack.Stick;
 
-import javax.sound.sampled.Line;
 import java.io.*;
 import java.net.InetAddress;
 import java.net.Socket;
+import java.util.LinkedList;
 
 /**
  * Created by Yassen on 8/24/2017.
@@ -18,8 +18,11 @@ public class Client extends Thread {
     PrintWriter out;
     BufferedReader in;
     ObjectInputStream inObject;
+    ObjectOutputStream outObject;
     InetAddress inetAddr;
     String serverAddress;
+    CommunicationObject commObj;
+    //LinkedList<Stick> sticks;
 
     public Client(String name){
         this.name = name;
@@ -32,46 +35,53 @@ public class Client extends Thread {
             //inetAddr = InetAddress.getByName(serverAddress);
             inetAddr = InetAddress.getLocalHost();
             socket = new Socket(inetAddr, 9999);
-            out = new PrintWriter(new OutputStreamWriter(socket.getOutputStream()), true);
-            in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+            //out = new PrintWriter(new OutputStreamWriter(socket.getOutputStream()), true);
+            //in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 
             inObject = new ObjectInputStream(socket.getInputStream());
+            outObject = new ObjectOutputStream(socket.getOutputStream());
             //BufferedReader output = new BufferedReader(new InputStreamReader(System.in));
             //out.println("CORRECTREQUEST");
+
+
 
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    public void sendText(String s){
-        out.println(s);
-    }
-
-    public String receiveText(){
-        String input = "";
+    public void SendObject(CommunicationObject communicationObject){
         try {
-            input = in.readLine();
-
-        } catch (IOException eio){
-            eio.fillInStackTrace();
+            outObject.writeObject(communicationObject);
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-        return input;
     }
 
-    public LinesPanel receiveObject(){
-        LinesPanel inputObj = null;
-        try {
-            inputObj = (LinesPanel)inObject.readObject();
+//    public LinkedList<Stick> receiveObject(){
+//        LinkedList<Stick> sticks = null;
+//        try {
+//            sticks = (LinkedList<Stick>)inObject.readObject();
+//
+//        } catch (IOException eio){
+//            eio.fillInStackTrace();
+//        } catch (ClassNotFoundException e) {
+//            e.printStackTrace();
+//        }
+//        return sticks;
+//    }
 
+    public CommunicationObject receiveCommunicationObject(){
+        CommunicationObject communicationObject = null;
+        try {
+            communicationObject = (CommunicationObject)inObject.readObject();
         } catch (IOException eio){
             eio.fillInStackTrace();
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
-        return inputObj;
+        return communicationObject;
     }
-
 
     public static void main(String[] args){
 

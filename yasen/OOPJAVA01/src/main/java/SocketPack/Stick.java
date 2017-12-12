@@ -1,9 +1,10 @@
 package SocketPack;
 
 import java.awt.Color;
+import java.io.Serializable;
 import java.util.Random;
 
-public class Stick {
+public class Stick implements Serializable{
 
     private int x1Coord = 0;
     private int y1Coord = 0;

@@ -1,9 +1,13 @@
 package SocketPack;
 
+        import AppUIPack.CommunicationObject;
+        import AppUIPack.LinesPanel;
+
         import java.io.IOException;
         import java.io.ObjectOutputStream;
         import java.io.PrintWriter;
         import java.util.ArrayList;
+        import java.util.LinkedList;
 
 public class ServerClients {
 
@@ -34,10 +38,21 @@ public class ServerClients {
         }
     }
 
-    public void SendClientsOut(LinesPanel linesPanel){
+    public void SendClientsOut(LinkedList<Stick> sticks){
         for (ObjectOutputStream item : ClientsOutObjectList) {
             try{
-                item.writeObject(linesPanel);
+                item.writeObject(sticks);
+            }catch (IOException ioe){
+                ioe.getMessage();
+            }
+        }
+    }
+
+    public void SendCommunicationObjectsOut(CommunicationObject communicationObject){
+
+        for (ObjectOutputStream item : ClientsOutObjectList) {
+            try{
+                item.writeObject(communicationObject);
             }catch (IOException ioe){
                 ioe.getMessage();
             }

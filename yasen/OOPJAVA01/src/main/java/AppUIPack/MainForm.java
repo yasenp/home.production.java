@@ -1,11 +1,10 @@
 package AppUIPack;
 
-import SocketPack.LinesPanel;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.LinkedList;
 
 public class MainForm extends JFrame {
 
@@ -31,7 +30,7 @@ public class MainForm extends JFrame {
         CreatePanel();
 
         new RecvObject().start();
-        new RecvText().start();
+
     }
 
     private void PrepareForm(){
@@ -71,15 +70,6 @@ public class MainForm extends JFrame {
         panelBase.setBackground(Color.GRAY);
         controlPanel.add(panelBase); //add right side panel to control panel
 
-        //creating playground panel
-//        panelPlayGround = new JPanel(){
-//            @Override
-//            protected void paintComponent(Graphics g) {
-//                super.paintComponent(g);
-//                g.drawLine(10,20,30, 50);
-//                //g.drawImage(image, 0, 0, null);
-//            }
-//        };
         panelPlayGround = new JPanel();
         panelPlayGround.setLayout(null);
         panelPlayGround.setBackground(Color.lightGray);
@@ -120,12 +110,12 @@ public class MainForm extends JFrame {
         textAreaConn.setSize(70,570);
         panelBase.add(textAreaConn);
 
-        //set the main frame to visible
-        mainFrame.setVisible(true);
-
         //register action listener for ui components
         button.addActionListener(new SendText());
         buttonStart.addActionListener(new StartGame());
+
+        //set the main frame to visible
+        mainFrame.setVisible(true);
     }
 
     public void CreatePlayGround(){
@@ -136,28 +126,39 @@ public class MainForm extends JFrame {
         panelPlayGround.add(linesPanel);
     }
 
-    //receiving text listener for chat
+
+    private class RecvObject extends Thread {
+        CommunicationObject input = null;
+        public void run(){
+            while(true){
+                input = currentClient.receiveCommunicationObject();
+                if(input.GetFlag().equals("message")){
+                    String clientName = currentClient.name;
+                    textArea.append(clientName+": " + input.GetText() + "\n");
+                } else {
+                    linesPanel = new LinesPanel(input.GetStick());
+                    CreatePlayGround();
+                    linesPanel.repaint();
+                    controlPanel.repaint();
+                }
+            }
+        }
+    }
+
+
+    //receiving text listener for
 
     private class RecvText extends Thread {
 
         public void run(){
             while(true){
                 String clientName = currentClient.name;
-                String input = currentClient.receiveText();
-                textArea.append(clientName+": " + input + "\n");
+                //String input = currentClient.receiveText();
+                //textArea.append(clientName+": " + input + "\n");
             }
         }
     }
 
-    private class RecvObject extends Thread {
-
-        public void run(){
-            while(true){
-                linesPanel = currentClient.receiveObject();
-                CreatePlayGround();
-            }
-        }
-    }
 
 
     //action listener instances
@@ -166,7 +167,8 @@ public class MainForm extends JFrame {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            currentClient.sendText(GetText());
+
+            currentClient.SendObject(new CommunicationObject(textField.getText()));
         }
     }
 
@@ -174,7 +176,8 @@ public class MainForm extends JFrame {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            currentClient.sendText("START");
+
+            currentClient.SendObject(new CommunicationObject(new LinkedList<>()));
         }
     }
 

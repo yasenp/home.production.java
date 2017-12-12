@@ -11,9 +11,10 @@ public class ProgramManager {
 
     public static void main(String args[]){
         ServerClients serverClients = new ServerClients();
+        LinesPanel linesPanel = new LinesPanel();
         try(ServerSocket serverSocket = new ServerSocket(9999)){
             while(true){
-                new CommunicationServer(serverSocket.accept(), serverClients).start();
+                new CommunicationServer(serverSocket.accept(), serverClients, linesPanel).start();
             }
 
         } catch (IOException ioe){

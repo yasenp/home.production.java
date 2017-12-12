@@ -1,5 +1,8 @@
 package AppUIPack;
 
+import SocketPack.LinesPanel;
+
+import javax.sound.sampled.Line;
 import java.io.*;
 import java.net.InetAddress;
 import java.net.Socket;
@@ -14,6 +17,7 @@ public class Client extends Thread {
     Socket socket;
     PrintWriter out;
     BufferedReader in;
+    ObjectInputStream inObject;
     InetAddress inetAddr;
     String serverAddress;
 
@@ -31,6 +35,7 @@ public class Client extends Thread {
             out = new PrintWriter(new OutputStreamWriter(socket.getOutputStream()), true);
             in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 
+            inObject = new ObjectInputStream(socket.getInputStream());
             //BufferedReader output = new BufferedReader(new InputStreamReader(System.in));
             //out.println("CORRECTREQUEST");
 
@@ -52,6 +57,19 @@ public class Client extends Thread {
             eio.fillInStackTrace();
         }
         return input;
+    }
+
+    public LinesPanel receiveObject(){
+        LinesPanel inputObj = null;
+        try {
+            inputObj = (LinesPanel)inObject.readObject();
+
+        } catch (IOException eio){
+            eio.fillInStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return inputObj;
     }
 
 

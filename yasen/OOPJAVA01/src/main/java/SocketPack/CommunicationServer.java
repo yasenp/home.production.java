@@ -12,17 +12,29 @@ public class CommunicationServer extends Thread {
     String state = "WAITING";
     PrintWriter out;
     BufferedReader in;
+    ObjectInputStream inObject;
+    ObjectOutputStream outObject;
     CommunicationServerProtocol serverProtocol;
     ServerClients clients;
+    LinesPanel linesPanel;
 
     //CommunicationServer constructor with specific client socket as argument.
-    public CommunicationServer(Socket socket, ServerClients serverClients) {
+    public CommunicationServer(Socket socket, ServerClients serverClients, LinesPanel linesPanel) {
         this.socket = socket;
         this.clients = serverClients;
+        this.linesPanel = linesPanel;
         try {
+            //out / in socket for string stream
             out = new PrintWriter(new OutputStreamWriter(socket.getOutputStream()), true);
             in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+
+            //out / in socket for object stream
+            outObject = new ObjectOutputStream(socket.getOutputStream());
+            //inObject = new ObjectInputStream(socket.getInputStream());
+
             clients.addClientsOut(out);
+            clients.addClientsOut(outObject);
+
             serverProtocol = new CommunicationServerProtocol();
         } catch(IOException eio){
             eio.fillInStackTrace();
@@ -37,8 +49,12 @@ public class CommunicationServer extends Thread {
             while (true) {
                 input = in.readLine();
                 if(input != null){
+                    if(input.equals("START")){
+                        clients.SendClientsOut(linesPanel);
+                    } else{
                     String processedInput = serverProtocol.processState(input);
                     clients.SendClientsOut(processedInput);
+                    }
                 }
             }
         } catch(IOException e){

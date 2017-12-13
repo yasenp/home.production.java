@@ -21,7 +21,11 @@ public class CommunicationObject implements Serializable {
 
     public CommunicationObject(LinkedList<Stick> sticks){
         SetStick(sticks);
-        SetFlag("playground");
+        if(sticks.isEmpty()){
+            SetFlag("start playground");
+        } else {
+            SetFlag("playground");
+        }
     }
 
     public String GetText(){

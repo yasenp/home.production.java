@@ -121,7 +121,7 @@ public class MainForm extends JFrame {
         //create panel for sticks and add in playground panel
         linesPanel.setLayout(null);
         linesPanel.setLocation(0,0);
-        linesPanel.setSize(790,580);
+        linesPanel.setSize(680,580);
         panelPlayGround.add(linesPanel);
         linesPanel.addMouseListener(new MouseAdapter());
     }
@@ -140,27 +140,10 @@ public class MainForm extends JFrame {
                     linesPanel = new LinesPanel(input.GetStick());
                     CreatePlayGround();
                     linesPanel.repaint();
-                    controlPanel.repaint();
                 }
             }
         }
     }
-
-
-    //receiving text listener for
-
-    private class RecvText extends Thread {
-
-        public void run(){
-            while(true){
-                String clientName = currentClient.name;
-                //String input = currentClient.receiveText();
-                //textArea.append(clientName+": " + input + "\n");
-            }
-        }
-    }
-
-
 
     //action listener instances
 
@@ -189,8 +172,9 @@ public class MainForm extends JFrame {
         @Override
         public void mouseClicked(MouseEvent e) {
             linesPanel.removeLastStick();
-            revalidate();
-            repaint();
+            currentClient.SendObject(new CommunicationObject(linesPanel.GetCurrentSticks()));
+            linesPanel.repaint();
+
         }
 
         @Override

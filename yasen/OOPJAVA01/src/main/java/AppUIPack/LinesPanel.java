@@ -33,6 +33,10 @@ public class LinesPanel extends JPanel implements Serializable {
         }
     }
 
+    public LinkedList<Stick> GetCurrentSticks(){
+        return this.sticks;
+    }
+
     public void clearAllSticks() {
         sticks.clear();
     }

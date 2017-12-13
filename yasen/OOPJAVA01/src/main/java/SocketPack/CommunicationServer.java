@@ -52,10 +52,12 @@ public class CommunicationServer extends Thread {
             while (true) {
                 input = (CommunicationObject) inObject.readObject();
                 if(input != null){
-                    if(input.GetFlag().equals("playground")){
+                    if(input.GetFlag().equals("start playground")) {
                         input.SetStick(sticks);
                         clients.SendCommunicationObjectsOut(input);
-                    } else{
+                    } else if(input.GetFlag().equals("playground")){
+                            clients.SendCommunicationObjectsOut(input);
+                        } else{
                     //String processedInput = serverProtocol.processState(input.GetText());
                     clients.SendCommunicationObjectsOut(input);
                     }
@@ -76,7 +78,6 @@ public class CommunicationServer extends Thread {
             int y1 = (int) (600/5 + 120 * Math.cos(angle))+200;
             int x2 = (int) (x1 + 300 * Math.cos(angle));
             int y2 = (int) (y1 + 200 * Math.sin(angle));
-            //this.addStick(x1, y1, x2, y2);
             sticks.add(new Stick(x1, y1, x2, y2));
         }
     }

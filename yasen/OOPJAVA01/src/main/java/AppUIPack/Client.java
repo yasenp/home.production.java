@@ -53,6 +53,8 @@ public class Client extends Thread {
     public void SendObject(CommunicationObject communicationObject){
         try {
             outObject.writeObject(communicationObject);
+            outObject.reset();
+            //outObject.flush(); //proba
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -87,5 +89,6 @@ public class Client extends Thread {
 
             Client clientInst = new Client(args[0]);
             MainForm GUI = new MainForm(clientInst);
+
     }
 }

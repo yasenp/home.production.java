@@ -53,6 +53,7 @@ public class ServerClients {
         for (ObjectOutputStream item : ClientsOutObjectList) {
             try{
                 item.writeObject(communicationObject);
+                item.reset();
             }catch (IOException ioe){
                 ioe.getMessage();
             }

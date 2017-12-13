@@ -1,5 +1,7 @@
 package AppUIPack;
 
+import SocketPack.Stick;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -9,6 +11,7 @@ public class MainForm extends JFrame {
 
     private JButton button;
     private JButton buttonStart;
+    private JButton buttonJoin;
     private JTextField textField;
     public JTextArea textArea;
     private JPanel panelBottom;
@@ -22,14 +25,16 @@ public class MainForm extends JFrame {
     private  JPanel panelPlayGround;
 
     private LinesPanel linesPanel;
+    private CommunicationObject communicationObject;
 
     public MainForm(Client client){
         currentClient = client;
+        communicationObject = new CommunicationObject().CreateCommunicationObject(currentClient.name);
         PrepareForm();
         CreatePanel();
 
         new RecvObject().start();
-
+        mainFrame.setVisible(true);
     }
 
     private void PrepareForm(){
@@ -88,6 +93,12 @@ public class MainForm extends JFrame {
         buttonStart.setSize(80,40);
         panelBottom.add(buttonStart);
 
+        //create button join
+        buttonJoin = new JButton("Join");
+        buttonJoin.setLocation(80,10);
+        buttonJoin.setSize(80,40);
+        panelBottom.add(buttonJoin);
+
         //create text field
         textField = new JTextField(10);
         textField.setLocation(300,10);
@@ -112,9 +123,11 @@ public class MainForm extends JFrame {
         //register action listener for ui components
         button.addActionListener(new SendText());
         buttonStart.addActionListener(new StartGame());
+        buttonJoin.addActionListener(new JoinGame());
+        System.out.println("create add action listeners");
 
         //set the main frame to visible
-        mainFrame.setVisible(true);
+        //mainFrame.setVisible(true);
     }
 
     public void CreatePlayGround(){
@@ -134,9 +147,9 @@ public class MainForm extends JFrame {
             while(true){
                 input = currentClient.receiveCommunicationObject();
                 if(input.GetFlag().equals("message")){
-                    String clientName = currentClient.name;
-                    textArea.append(clientName+": " + input.GetText() + "\n");
+                    textArea.append(input.GetCurrentName()+": " + input.GetText() + "\n");
                 } else {
+                    communicationObject.SetStick(input.GetStick());
                     linesPanel = new LinesPanel(input.GetStick());
                     CreatePlayGround();
                     linesPanel.repaint();
@@ -151,8 +164,9 @@ public class MainForm extends JFrame {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-
-            currentClient.SendObject(new CommunicationObject(textField.getText()));
+            System.out.println("action press button Send is activated");
+            currentClient.SendObject(communicationObject.AddMessageCommunication(textField.getText()));
+            textField.setText("");
         }
     }
 
@@ -161,7 +175,15 @@ public class MainForm extends JFrame {
         @Override
         public void actionPerformed(ActionEvent e) {
 
-            currentClient.SendObject(new CommunicationObject(new LinkedList<>()));
+            currentClient.SendObject(communicationObject.AddSticksCommunication(new LinkedList<>()));
+        }
+    }
+
+    class JoinGame implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            currentClient.SendObject(communicationObject.AddSticksCommunication(new LinkedList<>()));
         }
     }
 
@@ -172,7 +194,9 @@ public class MainForm extends JFrame {
         @Override
         public void mouseClicked(MouseEvent e) {
             linesPanel.removeLastStick();
-            currentClient.SendObject(new CommunicationObject(linesPanel.GetCurrentSticks()));
+            communicationObject.SetStick(linesPanel.GetCurrentSticks());
+            //currentClient.SendObject(new CommunicationObject(linesPanel.GetCurrentSticks()));
+            currentClient.SendObject(communicationObject);
             linesPanel.repaint();
 
         }

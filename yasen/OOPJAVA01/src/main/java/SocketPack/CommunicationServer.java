@@ -7,6 +7,7 @@ import AppUIPack.LinesPanel;
 
 import java.io.*;
 import java.net.Socket;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Random;
 
@@ -22,6 +23,7 @@ public class CommunicationServer extends Thread {
     CommunicationServerProtocol serverProtocol;
     ServerClients clients;
     LinesPanel linesPanel;
+    CommunicationObject communicationObjectServer;
 
     private static LinkedList<Stick> sticks = new LinkedList<Stick>();
 
@@ -37,31 +39,57 @@ public class CommunicationServer extends Thread {
             inObject = new ObjectInputStream(socket.getInputStream());
 
             clients.addClientsOut(outObject);
-
+            communicationObjectServer = new CommunicationObject();
             serverProtocol = new CommunicationServerProtocol();
         } catch(IOException eio){
             eio.fillInStackTrace();
         }
     }
 
+    public ArrayList<CommunicationObject> readll(CommunicationObject input) throws IOException, ClassNotFoundException {
+        ArrayList<CommunicationObject> inputs = new ArrayList<CommunicationObject>();
+        //CommunicationObject input = null;
+        try {
+
+            //input = (CommunicationObject) inObject.readObject();
+            inputs.add(input);
+        } catch (NullPointerException e) {
+            e.getMessage();
+        }
+        return inputs;
+    }
+
     //Override run() from super class Thread.
     public void run() {
         System.out.println("Server is started and ready for listening on port 9999");
-            CommunicationObject input = null;
+        CommunicationObject input;
+        CommunicationObject inputCircle;
+        ArrayList<CommunicationObject> inputs = null;
+        int count = -1;
         try {
             while (true) {
                 input = (CommunicationObject) inObject.readObject();
+                inputs = readll(input);
+
+                //input = (CommunicationObject) inObject.readObject();
+//                inputCircle = inputs.get(count+1);
+//                count++;
                 if(input != null){
                     if(input.GetFlag().equals("start playground")) {
                         input.SetStick(sticks);
                         clients.SendCommunicationObjectsOut(input);
-                    } else if(input.GetFlag().equals("playground")){
-                            clients.SendCommunicationObjectsOut(input);
+                    } else if(input.GetFlag().equals("playground")) {
+                        clients.SendCommunicationObjectsOut(input);
+                    } else if(input.GetFlag().equals("join playground")){
+                            clients.SendCommunicationObjectsOut(communicationObjectServer);
                         } else{
                     //String processedInput = serverProtocol.processState(input.GetText());
+                    communicationObjectServer = input;
                     clients.SendCommunicationObjectsOut(input);
+
                     }
                 }
+                //input = null;
             }
         } catch(IOException e){
                 e.getMessage();

@@ -16,14 +16,11 @@ public class CommunicationServer extends Thread {
     //Create socket object to be assigned.
     Socket socket = null;
     String state = "WAITING";
-    PrintWriter out;
-    //BufferedReader in;
     ObjectInputStream inObject;
     ObjectOutputStream outObject;
     CommunicationServerProtocol serverProtocol;
     ServerClients clients;
-    LinesPanel linesPanel;
-    CommunicationObject communicationObjectServer;
+    public static CommunicationObject communicationObjectServer;
 
     private static LinkedList<Stick> sticks = new LinkedList<Stick>();
 
@@ -39,57 +36,38 @@ public class CommunicationServer extends Thread {
             inObject = new ObjectInputStream(socket.getInputStream());
 
             clients.addClientsOut(outObject);
-            communicationObjectServer = new CommunicationObject();
+
             serverProtocol = new CommunicationServerProtocol();
         } catch(IOException eio){
             eio.fillInStackTrace();
         }
     }
 
-    public ArrayList<CommunicationObject> readll(CommunicationObject input) throws IOException, ClassNotFoundException {
-        ArrayList<CommunicationObject> inputs = new ArrayList<CommunicationObject>();
-        //CommunicationObject input = null;
-        try {
-
-            //input = (CommunicationObject) inObject.readObject();
-            inputs.add(input);
-        } catch (NullPointerException e) {
-            e.getMessage();
-        }
-        return inputs;
-    }
-
     //Override run() from super class Thread.
     public void run() {
         System.out.println("Server is started and ready for listening on port 9999");
         CommunicationObject input;
-        CommunicationObject inputCircle;
-        ArrayList<CommunicationObject> inputs = null;
-        int count = -1;
+
         try {
             while (true) {
                 input = (CommunicationObject) inObject.readObject();
-                inputs = readll(input);
 
-                //input = (CommunicationObject) inObject.readObject();
-//                inputCircle = inputs.get(count+1);
-//                count++;
                 if(input != null){
                     if(input.GetFlag().equals("start playground")) {
                         input.SetStick(sticks);
                         clients.SendCommunicationObjectsOut(input);
                     } else if(input.GetFlag().equals("playground")) {
+                        setCommunicationObject(input);
                         clients.SendCommunicationObjectsOut(input);
                     } else if(input.GetFlag().equals("join playground")){
-                            clients.SendCommunicationObjectsOut(communicationObjectServer);
-                        } else{
+                            clients.SendCommunicationObjectsOut(getCommunicationObject());
+                    } else{
                     //String processedInput = serverProtocol.processState(input.GetText());
-                    communicationObjectServer = input;
+                    //communicationObjectServer = input;
                     clients.SendCommunicationObjectsOut(input);
 
                     }
                 }
-                //input = null;
             }
         } catch(IOException e){
                 e.getMessage();
@@ -98,7 +76,7 @@ public class CommunicationServer extends Thread {
         }
     }
 
-    public static void CreateSticksCollection(){
+    public static synchronized void CreateSticksCollection(){
         Random randomMain = new Random();
         for (int i = 0; i <= 20; i++) {
             int angle = (60 + randomMain.nextInt(120));
@@ -110,8 +88,27 @@ public class CommunicationServer extends Thread {
         }
     }
 
-    public void addStick(int x1, int y1, int x2, int y2){
-        sticks.add(new Stick(x1, y1, x2, y2));
+    public static synchronized CommunicationObject getCommunicationObject(){
+        return communicationObjectServer;
     }
+
+    public static synchronized void setCommunicationObject(CommunicationObject communicationObject){
+        communicationObjectServer = communicationObject;
+    }
+//    public ArrayList<CommunicationObject> readAll(CommunicationObject input) throws IOException, ClassNotFoundException {
+//        ArrayList<CommunicationObject> inputs = new ArrayList<CommunicationObject>();
+//        try {
+//
+//            //input = (CommunicationObject) inObject.readObject();
+//            inputs.add(input);
+//        } catch (NullPointerException e) {
+//            e.getMessage();
+//        }
+//        return inputs;
+//    }
+
+/*    public void addStick(int x1, int y1, int x2, int y2){
+        sticks.add(new Stick(x1, y1, x2, y2));
+    }*/
 }
 

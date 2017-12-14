@@ -1,7 +1,5 @@
 package AppUIPack;
 
-import SocketPack.Stick;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -125,9 +123,6 @@ public class MainForm extends JFrame {
         buttonStart.addActionListener(new StartGame());
         buttonJoin.addActionListener(new JoinGame());
         System.out.println("create add action listeners");
-
-        //set the main frame to visible
-        //mainFrame.setVisible(true);
     }
 
     public void CreatePlayGround(){
@@ -139,13 +134,12 @@ public class MainForm extends JFrame {
         linesPanel.addMouseListener(new MouseAdapter());
     }
 
-
-
     private class RecvObject extends Thread {
         CommunicationObject input = null;
         public void run(){
             while(true){
                 input = currentClient.receiveCommunicationObject();
+                if(input != null){
                 if(input.GetFlag().equals("message")){
                     textArea.append(input.GetCurrentName()+": " + input.GetText() + "\n");
                 } else {
@@ -153,6 +147,7 @@ public class MainForm extends JFrame {
                     linesPanel = new LinesPanel(input.GetStick());
                     CreatePlayGround();
                     linesPanel.repaint();
+                    }
                 }
             }
         }
@@ -165,7 +160,7 @@ public class MainForm extends JFrame {
         @Override
         public void actionPerformed(ActionEvent e) {
             System.out.println("action press button Send is activated");
-            currentClient.SendObject(communicationObject.AddMessageCommunication(textField.getText()));
+            currentClient.SendCommunicationObject(communicationObject.AddMessageCommunication(textField.getText()));
             textField.setText("");
         }
     }
@@ -174,8 +169,8 @@ public class MainForm extends JFrame {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-
-            currentClient.SendObject(communicationObject.AddSticksCommunication(new LinkedList<>()));
+            communicationObject.SetTypeGame(true);
+            currentClient.SendCommunicationObject(communicationObject.AddSticksCommunication(new LinkedList<>()));
         }
     }
 
@@ -183,7 +178,8 @@ public class MainForm extends JFrame {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            currentClient.SendObject(communicationObject.AddSticksCommunication(new LinkedList<>()));
+            communicationObject.SetTypeGame(false);
+            currentClient.SendCommunicationObject(communicationObject.AddSticksCommunication(new LinkedList<>()));
         }
     }
 
@@ -194,9 +190,12 @@ public class MainForm extends JFrame {
         @Override
         public void mouseClicked(MouseEvent e) {
             linesPanel.removeLastStick();
+
             communicationObject.SetStick(linesPanel.GetCurrentSticks());
-            //currentClient.SendObject(new CommunicationObject(linesPanel.GetCurrentSticks()));
-            currentClient.SendObject(communicationObject);
+            communicationObject.SetFlag("playground");
+            communicationObject.SetTypeGame(false);
+
+            currentClient.SendCommunicationObject(communicationObject);
             linesPanel.repaint();
 
         }

@@ -14,7 +14,6 @@ import javax.swing.JPanel;
 
 public class LinesPanel extends JPanel implements Serializable {
 
-    Random randomMain = new Random();
     private static final long serialVersionUID = 1L;
     private static LinkedList<Stick> sticks = new LinkedList<Stick>();
 

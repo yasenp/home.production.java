@@ -15,14 +15,16 @@ public class ProgramManager {
     public static void main(String args[]){
         ServerClients serverClients = new ServerClients();
         CommunicationServer.CreateSticksCollection();
+
         try(ServerSocket serverSocket = new ServerSocket(9999)){
             while(true){
                 Socket socket = serverSocket.accept();
                 new CommunicationServer(socket, serverClients).start();
-            }
 
-        } catch (IOException ioe){
-            ioe.getMessage();
+
+        }
+    } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }

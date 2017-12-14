@@ -11,10 +11,10 @@ public class CommunicationObject implements Serializable {
 //    public final static String stop = "STOP";
 
     private String text;
-    LinkedList<Stick> sticks;
+    private LinkedList<Stick> sticks;
     private String flag;
     private String clientName;
-    Boolean typeGame = true;
+    private Boolean typeGame;
 
     public CommunicationObject(){
 
@@ -89,5 +89,13 @@ public class CommunicationObject implements Serializable {
 
     public synchronized void SetFlag(String flag){
         this.flag = flag;
+    }
+
+    public synchronized Boolean GetTypeGame(){
+        return this.typeGame;
+    }
+
+    public synchronized void SetTypeGame(Boolean type){
+        this.typeGame = type;
     }
 }

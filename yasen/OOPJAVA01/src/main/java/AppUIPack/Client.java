@@ -10,10 +10,12 @@ import java.net.Socket;
 public class Client extends Thread {
 
     String name;
-    Socket socket;
+    Socket socket = new Socket();
     ObjectInputStream inObject;
     ObjectOutputStream outObject;
     InetAddress inetAddr;
+    int id;
+    private static CommunicationObject input;
 
     public Client(String name){
         this.name = name;
@@ -27,8 +29,12 @@ public class Client extends Thread {
             socket = new Socket(inetAddr, 9999);
             inObject = new ObjectInputStream(socket.getInputStream());
             outObject = new ObjectOutputStream(socket.getOutputStream());
+            input = (CommunicationObject)inObject.readObject();
+            this.id = input.GetClientId();
 
         } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
     }
@@ -71,7 +77,7 @@ public class Client extends Thread {
     public static void main(String[] args){
 
             Client clientInst = new Client(args[0]);
-            MainForm GUI = new MainForm(clientInst);
+            MainForm GUI = new MainForm(clientInst, input);
 
     }
 }

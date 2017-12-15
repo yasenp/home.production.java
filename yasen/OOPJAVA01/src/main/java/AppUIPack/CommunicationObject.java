@@ -15,6 +15,7 @@ public class CommunicationObject implements Serializable {
     private String flag;
     private String clientName;
     private Boolean typeGame;
+    private int id;
 
     public CommunicationObject(){
 
@@ -98,4 +99,14 @@ public class CommunicationObject implements Serializable {
     public synchronized void SetTypeGame(Boolean type){
         this.typeGame = type;
     }
+
+    public synchronized int GetClientId(){
+        return this.id;
+    }
+
+    public synchronized void SetClientId(int clientId){
+        this.id = clientId;
+    }
+
+
 }

@@ -4,6 +4,7 @@ package SocketPack; /**
 
 import AppUIPack.CommunicationObject;
 import AppUIPack.LinesPanel;
+import sun.invoke.empty.Empty;
 
 import java.io.*;
 import java.net.Socket;
@@ -18,16 +19,19 @@ public class CommunicationServer extends Thread {
     String state = "WAITING";
     ObjectInputStream inObject;
     ObjectOutputStream outObject;
+    int id;
     CommunicationServerProtocol serverProtocol;
     ServerClients clients;
+    public static Boolean isStarted = true;
     public static CommunicationObject communicationObjectServer;
 
     private static LinkedList<Stick> sticks = new LinkedList<Stick>();
 
     //CommunicationServer constructor with specific client socket as argument.
-    public CommunicationServer(Socket socket, ServerClients serverClients) {
+    public CommunicationServer(Socket socket, ServerClients serverClients, int idcon) {
         this.socket = socket;
         this.clients = serverClients;
+        this.id = idcon;
 
         try {
 
@@ -35,7 +39,12 @@ public class CommunicationServer extends Thread {
             outObject = new ObjectOutputStream(socket.getOutputStream());
             inObject = new ObjectInputStream(socket.getInputStream());
 
-            clients.addClientsOut(outObject);
+
+            clients.addClientsOut(id, outObject);
+            communicationObjectServer = new CommunicationObject();
+            communicationObjectServer.SetClientId(id);
+            outObject.writeObject(communicationObjectServer);
+            outObject.reset();
 
             serverProtocol = new CommunicationServerProtocol();
         } catch(IOException eio){
@@ -54,13 +63,24 @@ public class CommunicationServer extends Thread {
 
                 if(input != null){
                     if(input.GetFlag().equals("start playground")) {
-                        input.SetStick(sticks);
-                        clients.SendCommunicationObjectsOut(input);
+                        if(isStarted){
+                            input.SetStick(sticks);
+                            isStarted = false;
+                            clients.addClientsOutCurrentGame(input.GetClientId());
+                            clients.SendSingleCommunicationObjectsOut(input);
+                            setCommunicationObject(input);
+                        } else {
+                            continue;
+                            //input.SetStick(new LinkedList<>());
+                            //clients.SendSingleCommunicationObjectsOut(input);
+                        }
+
                     } else if(input.GetFlag().equals("playground")) {
                         setCommunicationObject(input);
-                        clients.SendCommunicationObjectsOut(input);
+                        clients.SendCommunicationObjectsOutCurrentGame(input);
                     } else if(input.GetFlag().equals("join playground")){
-                            clients.SendCommunicationObjectsOut(getCommunicationObject());
+                            clients.addClientsOutCurrentGame(input.GetClientId());
+                            clients.SendCommunicationObjectsOutCurrentGame(getCommunicationObject());
                     } else{
                     //String processedInput = serverProtocol.processState(input.GetText());
                     //communicationObjectServer = input;

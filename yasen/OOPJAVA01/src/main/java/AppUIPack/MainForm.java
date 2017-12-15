@@ -25,9 +25,9 @@ public class MainForm extends JFrame {
     private LinesPanel linesPanel;
     private CommunicationObject communicationObject;
 
-    public MainForm(Client client){
+    public MainForm(Client client, CommunicationObject communicationObject){
         currentClient = client;
-        communicationObject = new CommunicationObject().CreateCommunicationObject(currentClient.name);
+        this.communicationObject = communicationObject.CreateCommunicationObject(currentClient.name);
         PrepareForm();
         CreatePanel();
 
@@ -142,7 +142,8 @@ public class MainForm extends JFrame {
                 if(input != null){
                 if(input.GetFlag().equals("message")){
                     textArea.append(input.GetCurrentName()+": " + input.GetText() + "\n");
-                } else {
+                }
+                else {
                     communicationObject.SetStick(input.GetStick());
                     linesPanel = new LinesPanel(input.GetStick());
                     CreatePlayGround();
@@ -170,6 +171,7 @@ public class MainForm extends JFrame {
         @Override
         public void actionPerformed(ActionEvent e) {
             communicationObject.SetTypeGame(true);
+            communicationObject.SetClientId(currentClient.id);
             currentClient.SendCommunicationObject(communicationObject.AddSticksCommunication(new LinkedList<>()));
         }
     }

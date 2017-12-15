@@ -6,61 +6,66 @@ package SocketPack;
         import java.io.IOException;
         import java.io.ObjectOutputStream;
         import java.io.PrintWriter;
-        import java.util.ArrayList;
-        import java.util.LinkedList;
+        import java.util.*;
 
 public class ServerClients {
 
     ArrayList<PrintWriter> ClientsOutList = new ArrayList<PrintWriter>();
-    ArrayList<ObjectOutputStream> ClientsOutObjectList = new ArrayList<ObjectOutputStream>();
+    LinkedList<ObjectOutputStream> ClientsOutObjectList = new LinkedList<>();
+    LinkedList<ObjectOutputStream> ClientsOutObjectCurrentGameList = new LinkedList<>();
+    int id = 0;
 
     public void addClientsOut(PrintWriter out){
         ClientsOutList.add(out);
     }
 
     //overwriting
-    public void addClientsOut(ObjectOutputStream out){
-        ClientsOutObjectList.add(out);
+    public void addClientsOut(int idcon, ObjectOutputStream out){
+        ClientsOutObjectList.add(idcon, out);
     }
 
     //overwriting
-    public void RemoveClientsOut(ObjectOutputStream out){
-        ClientsOutObjectList.remove(out);
-    }
-
-    public void RemoveClientsOut(PrintWriter out){
-        ClientsOutList.remove(out);
-    }
-
-    public void SendClientsOut(String message){
-        for (PrintWriter item : ClientsOutList) {
-            item.println(message);
-        }
-    }
-
-    public void SendClientsOut(LinkedList<Stick> sticks){
-        for (ObjectOutputStream item : ClientsOutObjectList) {
-            try{
-                item.writeObject(sticks);
-            }catch (IOException ioe){
-                ioe.getMessage();
-            }
+    public void addClientsOutCurrentGame(int idcon){
+        if(ClientsOutObjectCurrentGameList.size() != ClientsOutObjectList.size()){
+            ClientsOutObjectCurrentGameList.add(ClientsOutObjectList.get(idcon));
         }
     }
 
     public void SendCommunicationObjectsOut(CommunicationObject communicationObject){
 
-        for (ObjectOutputStream item : ClientsOutObjectList) {
-            try{
-                item.writeObject(communicationObject);
-                item.reset();
-            }catch (IOException ioe){
-                ioe.getMessage();
+
+        Iterator<ObjectOutputStream> itr = ClientsOutObjectList.iterator();
+        while(itr.hasNext()){
+            ObjectOutputStream objectOut = itr.next();
+            try {
+                objectOut.writeObject(communicationObject);
+                objectOut.reset();
+            } catch (IOException e) {
+                e.printStackTrace();
             }
         }
     }
 
-    public int CountClients(){
-        return ClientsOutList.size();
+    public void SendSingleCommunicationObjectsOut(CommunicationObject communicationObject){
+        int index = communicationObject.GetClientId();
+        try {
+            ClientsOutObjectList.get(index).writeObject(communicationObject);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void SendCommunicationObjectsOutCurrentGame(CommunicationObject communicationObject){
+
+        Iterator<ObjectOutputStream> itr = ClientsOutObjectCurrentGameList.iterator();
+        while(itr.hasNext()){
+            ObjectOutputStream objectOut = itr.next();
+            try {
+                objectOut.writeObject(communicationObject);
+                objectOut.reset();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 }

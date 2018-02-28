@@ -1,7 +1,7 @@
 <application>
   <component name="FindSettings">
-    <option name="customScope" value="Project 'APIWithGradle'" />
-    <option name="defaultScopeName" value="Project 'APIWithGradle'" />
-    <option name="SEARCH_SCOPE" value="Project 'APIWithGradle'" />
+    <option name="customScope" value="Project 'TAFramework'" />
+    <option name="defaultScopeName" value="Project 'TAFramework'" />
+    <option name="SEARCH_SCOPE" value="Project 'TAFramework'" />
   </component>
 </application>

@@ -5,6 +5,7 @@
       <mapping pattern="a" type="CLASS" />
       <mapping pattern="CurrentWeatherFind" type="PLAIN_TEXT" />
       <mapping ext="feature" type="PLAIN_TEXT" />
+      <mapping ext="features" type="PLAIN_TEXT" />
     </extensionMap>
   </component>
 </application>
